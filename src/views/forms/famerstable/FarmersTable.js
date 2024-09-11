@@ -1,26 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import DataTable from './DataTable'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchFarmers } from '../../../actions/farmerActions'
 
 const ProducersPage = () => {
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const dispatch = useDispatch()
+  const { data, loading, error } = useSelector((state) => state.farmers)
 
   useEffect(() => {
-    const fetchProducers = async () => {
-      try {
-        const response = await axios.get('http://localhost:3001/farmers')
-        setData(response.data)
-      } catch (error) {
-        setError('Erro ao carregar produtores')
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchProducers()
-  }, [])
+    dispatch(fetchFarmers())
+  }, [dispatch])
 
   if (loading) return <p>Carregando...</p>
   if (error) return <p>{error}</p>
