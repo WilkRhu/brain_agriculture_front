@@ -1,5 +1,6 @@
-import { legacy_createStore as createStore, combineReducers } from 'redux'
-import producersReducer from './store/producersSlice'
+import { legacy_createStore as createStore, combineReducers, applyMiddleware } from 'redux'
+import farmersReducer from './reducers/farmerReducer'
+import { thunk } from 'redux-thunk'
 
 const initialState = {
   sidebarShow: true,
@@ -17,9 +18,9 @@ const changeState = (state = initialState, { type, ...rest }) => {
 
 const rootReducer = combineReducers({
   changeState,
-  producers: producersReducer,
+  farmers: farmersReducer,
 })
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 export default store
