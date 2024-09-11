@@ -12,17 +12,17 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'Agricultores',
+    name: 'Produtores',
     icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'Cadastro de Agricultores',
+        name: 'Cadastro de Produtores',
         to: '/forms/formcadastrofarmer',
       },
       {
         component: CNavItem,
-        name: 'Listagem de Agricultores',
+        name: 'Listagem de Produtores',
         to: '/forms/famerstable',
       },
     ],

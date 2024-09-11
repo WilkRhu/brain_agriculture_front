@@ -1,13 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-// Ação para buscar produtores
 export const fetchProducers = createAsyncThunk('producers/fetchProducers', async () => {
   const response = await axios.get('http://localhost:3001/farmers')
   return response.data
 })
 
-// Ação para deletar um produtor
 export const deleteProducer = createAsyncThunk('producers/deleteProducer', async (id) => {
   await axios.delete(`http://localhost:3001/farmers/${id}`)
   return id
