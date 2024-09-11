@@ -17,9 +17,11 @@ import {
 import Select from 'react-select'
 
 const cropOptions = [
-  { value: 'soja', label: 'Soja' },
-  { value: 'milho', label: 'Milho' },
-  { value: 'algodao', label: 'Algodão' },
+  { value: 'SOY', label: 'Soja' },
+  { value: 'CORN', label: 'Milho' },
+  { value: 'COFFEE', label: 'Café' },
+  { value: 'COTTON', label: 'Algodão' },
+  { value: 'SUGAR_CANE', label: 'Cana de Açucar' },
 ]
 
 const DataTable = () => {
