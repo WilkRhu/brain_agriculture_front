@@ -86,13 +86,12 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:3001/farmers/by-state')
-        console.log(response.data, 'Teste')
 
         const states = response.data.map((item) => item.state)
         const counts = response.data.map((item) => item.count)
         const backgroundColors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40']
         const hoverBackgroundColors = backgroundColors
-        console.log(states)
+
         setChartData({
           labels: states,
           datasets: [
